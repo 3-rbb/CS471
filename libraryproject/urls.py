@@ -1,5 +1,3 @@
-import apps.bookmodule.views
-``
 """
 URL configuration for libraryproject project.
 
@@ -21,5 +19,4 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', apps.bookmodule.views.index)
 ]
