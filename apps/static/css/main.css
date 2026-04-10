@@ -1,0 +1,96 @@
+body {
+    font-family: "Times New Roman", serif;
+    background-color: white;
+    padding: 20px;
+    color: black;
+}
+
+/* الجدول العلوي */
+.top-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.top-table th {
+    border: 1px solid #666;
+    padding: 14px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+/* شريط الرابط */
+.url-bar {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 18px;
+    margin: 15px 0 35px 0;
+    font-size: 14px;
+    color: #444;
+    box-sizing: border-box;
+}
+
+/* الجدول الأول */
+.fruit-table {
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.fruit-table caption {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.fruit-table th,
+.fruit-table td {
+    border: 1px solid #555;
+    padding: 6px 12px;
+    text-align: center;
+}
+
+/* الجدول الثاني */
+.camel-table {
+    width: 70%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.camel-table caption {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.camel-table th,
+.camel-table td {
+    border: 1px solid #666;
+    padding: 6px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.camel-title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.image-cell {
+    width: 180px;
+    padding: 0;
+}
+
+.camel-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}

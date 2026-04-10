@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables Page</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+    <!-- الجدول العلوي -->
+    <table class="top-table">
+        <tr>
+            <th>CS471 – Web Technologies<br>(Laboratory)</th>
+            <th>
+                <img src="{% static 'images/qu-logo.png' %}" alt="University Logo" class="logo">
+            </th>
+            <th>Lab 5<br><br>HTML and CSS (Part 2)</th>
+        </tr>
+    </table>
+
+    <!-- شريط يشبه شريط الرابط -->
+    <div class="url-bar">
+        http://127.0.0.1:8000/books/html5/tables
+    </div>
+
+    <!-- الجدول الأول -->
+    <table class="fruit-table">
+        <caption>Table 1: Table of Fruits and Their Prices</caption>
+        <tr>
+            <th>Fruit</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>$0.25</td>
+        </tr>
+        <tr>
+            <td>Orange</td>
+            <td>$0.50</td>
+        </tr>
+        <tr>
+            <td>Banana</td>
+            <td>$1.00</td>
+        </tr>
+        <tr>
+            <td>Pineapple</td>
+            <td>$2.00</td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <th>$3.75</th>
+        </tr>
+    </table>
+
+    <!-- الجدول الثاني -->
+    <table class="camel-table">
+        <caption>Table 2: A more complex sample table</caption>
+
+        <tr>
+            <td class="image-cell" rowspan="2">
+                <img src="{% static 'images/desert.jpg' %}" alt="Dromedary" class="camel-image">
+            </td>
+            <th colspan="4" class="camel-title">
+                Camelid comparison<br>
+                Approximate as of 6/2011
+            </th>
+        </tr>
+
+        <tr>
+            <th># of humps</th>
+            <th>Indigenous region</th>
+            <th>Spits?</th>
+            <th>Produces wool?</th>
+        </tr>
+
+        <tr>
+            <th>Dromedary</th>
+            <td>1</td>
+            <td>Arabian Peninsula</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+
+        <tr>
+            <th>Camels (bactrian)</th>
+            <td>2</td>
+            <td>Africa/Asia</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+
+        <tr>
+            <th>Llamas</th>
+            <td>1</td>
+            <td>Andes Mountains</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Page</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+    <h1>Nested Lists Example</h1>
+
+    <ul class="nested-list">
+        <li>Programming Languages
+            <ul>
+                <li>Python</li>
+                <li>Java
+                    <ul>
+                        <li>Spring</li>
+                        <li>JSP</li>
+                    </ul>
+                </li>
+                <li>C++</li>
+            </ul>
+        </li>
+
+        <li>Web Technologies
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ol>
+        </li>
+    </ul>
+
+</body>
+</html>
