@@ -15,3 +15,9 @@
 {% endfor %}
 </ul>
 {% endblock content %}
+{% for b in books %}
+ID: {{ b.id }} <br>
+Title: {{ b.title }} <br>
+Author: {{ b.author }}
+<hr>
+{% endfor %}
