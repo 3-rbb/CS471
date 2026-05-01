@@ -1,0 +1,7 @@
+
+<h2>Task 5 - Highly Rated Books</h2>
+<ul>
+  {% for p in publishers %}
+    <li>{{ p.name }} - {{ p.high_rated_books }}</li>
+  {% endfor %}
+</ul>

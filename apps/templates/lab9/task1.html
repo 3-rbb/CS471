@@ -1,0 +1,9 @@
+
+<h2>Task 1 - Availability</h2>
+<ul>
+  {% for book in books %}
+    <li>
+      {{ book.title }} - {{ book.availability_percentage|floatformat:2 }} %
+    </li>
+  {% endfor %}
+</ul>
