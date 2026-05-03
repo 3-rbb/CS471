@@ -1,8 +1,14 @@
+<h1>Task 2 - Total Stock</h1>
 
-
-<h2>Task 2 - Total Stock</h2>
-<ul>
+<table border="1">
+  <tr>
+    <th>Publisher</th>
+    <th>Total Stock</th>
+  </tr>
   {% for p in publishers %}
-    <li>{{ p.name }} - {{ p.total_stock }}</li>
+  <tr>
+    <td>{{ p.name }}</td>
+    <td>{{ p.total_stock }}</td>
+  </tr>
   {% endfor %}
-</ul>
+</table>

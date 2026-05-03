@@ -1,12 +1,11 @@
+<h1>Task 4 - Price Stats</h1>
 
-<h2>Task 4 - Price Stats</h2>
-<ul>
-  {% for p in publishers %}
-    <li>
-      {{ p.name }} |
-      Avg: {{ p.avg_price }} |
-      Min: {{ p.min_price }} |
-      Max: {{ p.max_price }}
-    </li>
-  {% endfor %}
-</ul>
+{% for p in publishers %}
+<p>
+  <b>{{ p.name }}</b><br>
+  Avg: {{ p.avg_price }}<br>
+  Min: {{ p.min_price }}<br>
+  Max: {{ p.max_price }}
+</p>
+<hr>
+{% endfor %}

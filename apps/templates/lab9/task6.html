@@ -1,7 +1,5 @@
+<h1>Task 6 - Filtered Books</h1>
 
-<h2>Task 6 - Filtered Books</h2>
-<ul>
-  {% for p in publishers %}
-    <li>{{ p.name }} - {{ p.filtered_books }}</li>
-  {% endfor %}
-</ul>
+{% for p in publishers %}
+<p>{{ p.name }} : {{ p.filtered_books }}</p>
+{% endfor %}

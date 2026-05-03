@@ -1,7 +1,9 @@
+<h1>Task 3 - Oldest Book</h1>
 
-<h2>Task 3 - Oldest Book</h2>
 <ul>
   {% for p in publishers %}
-    <li>{{ p.name }} - {{ p.oldest_book }}</li>
+    <li>
+      {{ p.name }} - {{ p.oldest_book }}
+    </li>
   {% endfor %}
 </ul>
