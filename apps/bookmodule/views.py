@@ -4,6 +4,10 @@ from django.db.models import (
     FloatField, ExpressionWrapper, Q
 )
 from .models import Book, Publisher
+from django.shortcuts import redirect
+from django.utils import timezone
+from .forms import BookForm
+from django.shortcuts import get_object_or_404
 
 
 def index(request):
@@ -190,3 +194,85 @@ def lab9_task6(request):
         )
     )
     return render(request, 'lab9/task6.html', {'publishers': publishers})
+
+
+def list_books(request):
+    books = Book.objects.all()
+    return render(
+        request,
+        'bookmodule/list_books.html',
+        {'books': books}
+    )
+
+
+def add_book(request):
+    if request.method == 'POST':
+        Book.objects.create(
+            title=request.POST['title'],
+            price=request.POST['price'],
+            quantity=request.POST['quantity'],
+            rating=request.POST['rating'],
+            pubdate=timezone.now()
+        )
+        return redirect('/books/lab9_part1/listbooks')
+
+    return render(request, 'addbook.html')
+
+def edit_book(request, id):
+    book = get_object_or_404(Book, id=id)
+
+
+    if request.method == 'POST':
+        book.title = request.POST['title']
+        book.price = request.POST['price']
+        book.quantity = request.POST['quantity']
+        book.rating = request.POST['rating']
+        book.save()
+        return redirect('/books/lab9_part1/listbooks')
+
+    return render(
+        request,
+        'bookmodule/edit_book.html',
+        {'book': book}
+    )
+
+def delete_book(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect('/books/lab9_part1/listbooks')
+
+def list_books_form(request):
+    books = Book.objects.all()
+    return render(request, 'bookmodule/list_books_form.html', {'books': books})
+
+def add_book_form(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+
+        if form.is_valid():  
+            form.save()
+            return redirect('/books/lab9_part2/listbooks')
+    else:
+        form = BookForm()
+
+    return render(request, 'add_book_form.html', {'form': form})
+
+
+def edit_book_form(request, id):
+    book = Book.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = BookForm(request.POST, instance=book)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/books/lab9_part2/listbooks')
+    else:
+        form = BookForm(instance=book)
+
+    return render(request, 'edit_book_form.html', {'form': form})
+
+def delete_book_form(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect('/books/lab9_part2/listbooks')
