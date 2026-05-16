@@ -3,7 +3,7 @@ from django.db.models import (
     Sum, Avg, Min, Max, Count, F,
     FloatField, ExpressionWrapper, Q
 )
-from .models import Book, Publisher
+from .models import Book, Publisher, Address, Student
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import BookForm
@@ -13,11 +13,10 @@ from django.shortcuts import get_object_or_404
 def index(request):
     return render(request, "bookmodule/index.html")
 
-def list_books(request):
-    return render(request, 'bookmodule/list_books.html')
 
 def viewbook(request, bookId):
-    return render(request, 'bookmodule/one_book.html')
+    book = get_object_or_404(Book, id=bookId)
+    return render(request, 'bookmodule/one_book.html', {'book': book})
 
 def aboutus(request):
     return render(request, 'bookmodule/aboutus.html')
