@@ -8,5 +8,13 @@
 
     <a class="{% if url_name == 'books.aboutus' %}active{% endif %}"
        href="{% url 'books.aboutus' %}">About</a>
+
+    {% if user.is_authenticated %}
+        <span style="float: right; padding: 14px 16px; color: white;">Welcome, {{ user.username }}</span>
+        <a style="float: right;" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a style="float: right;" href="{% url 'register' %}">Register</a>
+        <a style="float: right;" href="{% url 'login' %}">Login</a>
+    {% endif %}
 </div>
 {% endwith %}

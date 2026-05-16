@@ -8,12 +8,14 @@ from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import BookForm
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
     return render(request, "bookmodule/index.html")
 
 
+@login_required(login_url='login')
 def viewbook(request, bookId):
     book = get_object_or_404(Book, id=bookId)
     return render(request, 'bookmodule/one_book.html', {'book': book})
@@ -195,6 +197,7 @@ def lab9_task6(request):
     return render(request, 'lab9/task6.html', {'publishers': publishers})
 
 
+@login_required(login_url='login')
 def list_books(request):
     books = Book.objects.all()
     return render(
@@ -204,6 +207,7 @@ def list_books(request):
     )
 
 
+@login_required(login_url='login')
 def add_book(request):
     if request.method == 'POST':
         Book.objects.create(
@@ -217,6 +221,7 @@ def add_book(request):
 
     return render(request, 'addbook.html')
 
+@login_required(login_url='login')
 def edit_book(request, id):
     book = get_object_or_404(Book, id=id)
 
@@ -235,15 +240,18 @@ def edit_book(request, id):
         {'book': book}
     )
 
+@login_required(login_url='login')
 def delete_book(request, id):
     book = Book.objects.get(id=id)
     book.delete()
     return redirect('/books/lab9_part1/listbooks')
 
+@login_required(login_url='login')
 def list_books_form(request):
     books = Book.objects.all()
     return render(request, 'bookmodule/list_books_form.html', {'books': books})
 
+@login_required(login_url='login')
 def add_book_form(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
@@ -257,6 +265,7 @@ def add_book_form(request):
     return render(request, 'add_book_form.html', {'form': form})
 
 
+@login_required(login_url='login')
 def edit_book_form(request, id):
     book = Book.objects.get(id=id)
 
@@ -271,6 +280,7 @@ def edit_book_form(request, id):
 
     return render(request, 'edit_book_form.html', {'form': form})
 
+@login_required(login_url='login')
 def delete_book_form(request, id):
     book = Book.objects.get(id=id)
     book.delete()
